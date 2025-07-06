@@ -9,7 +9,22 @@ const { title, noSectionWrapper = false } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph tags for Discord, Twitter, etc. -->
+    <meta property="og:title" content="DrBenStoneSage" />
+    <meta
+      property="og:description"
+      content="Creating games, immersive experiences, and strange worlds."
+    />
+    <meta
+      property="og:image"
+      content="https://drbenstonesage.com/assets/preview.png"
+    />
+    <meta property="og:url" content="https://drbenstonesage.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
+
   <body>
     <Navbar />
     <div class="landscape-decor" aria-hidden="true">

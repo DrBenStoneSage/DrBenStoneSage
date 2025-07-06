@@ -1,15 +1,18 @@
 ---
-// Accept any props or content passed into the layout
-const { title = "DrBenStoneSage" } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+const { title } = Astro.props;
 ---
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <title>{title}</title>
   </head>
-  <body style="margin: 0; background: #000; color: #fff;">
-    <slot />
+  <body>
+    <Navbar />
+    <main class="page-section">
+      <slot />
+    </main>
   </body>
 </html>

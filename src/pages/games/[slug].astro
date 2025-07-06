@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const games = await getCollection('games');
+  return games.map((game) => ({
+    params: { slug: game.slug },
+    props: { slug: game.slug },
+  }));
+}
+
+const { slug } = Astro.props;
+const games = await getCollection('games');
+const game = games.find((g) => g.slug === slug);
+if (!game) throw new Error(`Game not found: ${slug}`);
+---
+
+<Layout title={game.data.title}>
+    <section class="game-detail">
+      <div class="top-grid">
+        <div class="media">
+          {game.data.trailer && (
+            <video src={game.data.trailer} controls poster={game.data.thumbnail} />
+          )}
+          <div class="screenshots">
+            {game.data.screenshots?.map((img) => (
+              <img src={img} alt="Screenshot" />
+            ))}
+          </div>
+        </div>
+  
+        <div class="summary">
+          <h1>{game.data.title}</h1>
+          <p class="tagline">{game.data.tagline}</p>
+          <p><strong>Status:</strong> {game.data.status}</p>
+          {game.data.releaseDate && (
+            <p><strong>Release:</strong> {game.data.releaseDate}</p>
+          )}
+          <p><strong>Developer:</strong> {game.data.developer}</p>
+          <p><strong>Publisher:</strong> {game.data.publisher}</p>
+  
+          {game.data.tags && (
+            <div class="tags">
+              {game.data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+  
+      {game.data.features && (
+        <section>
+          <h2>Features</h2>
+          <ul>
+            {game.data.features.map((f) => <li>{f}</li>)}
+          </ul>
+        </section>
+      )}
+  
+      {game.data.controllerSupport && (
+        <section>
+          <h3>Partial Controller Support</h3>
+          <ul>
+            {game.data.controllerSupport.includes("Xbox") && <li>✅ Xbox Controller</li>}
+            {game.data.controllerSupport.includes("PlayStation") && <li>✅ PlayStation Controller</li>}
+          </ul>
+        </section>
+      )}
+  
+      {game.body && (
+        <section class="about">
+          <h2>About This Game</h2>
+          <div innerHTML={game.body} />
+        </section>
+      )}
+    </section>
+  </Layout>

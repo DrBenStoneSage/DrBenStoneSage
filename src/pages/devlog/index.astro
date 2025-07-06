@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('devlog')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+---
+
+<Layout title="Devlog">
+  <section class="post-list">
+    <h1>Devlog</h1>
+    <p class="subhead">Updates and thoughts on game development.</p>
+
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={`/devlog/${post.slug}`}>
+            <strong>{post.data.title}</strong>
+          </a>
+          <br />
+          <small>{post.data.date}</small>
+          <p>{post.data.summary}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>

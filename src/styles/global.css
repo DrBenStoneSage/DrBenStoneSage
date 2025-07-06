@@ -1,0 +1,101 @@
+:root {
+    --bg-start: #66cc88;
+    --bg-end: #001a00;
+    --text-color: #e0ffe0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, var(--bg-start), var(--bg-end));
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+  
+  a {
+    color: #ccffcc;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .page-section {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+  }
+  
+  .game-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #44aa77;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .tagline {
+    color: #99cc99;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .status {
+    font-size: 0.9rem;
+    color: #66cc66;
+    margin-bottom: 2rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #e0ffe0;
+  }
+  
+  .back-link {
+    font-size: 0.9rem;
+    color: #99cc99;
+  }
+
+  .game-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    color: #e0ffe0;
+  }
+  
+  .media-summary {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .media video {
+    width: 100%;
+    max-width: 480px;
+    border: 2px solid #66cc66;
+  }
+  
+  .screenshots img {
+    width: 100px;
+    margin-top: 0.5rem;
+  }
+  
+  .summary {
+    flex: 1;
+  }
+  
+  .tag {
+    background: #003300;
+    color: #ccffcc;
+    padding: 0.3rem 0.6rem;
+    margin-right: 0.3rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  

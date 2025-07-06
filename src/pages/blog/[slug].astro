@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { postSlug: post.slug },
+  }));
+}
+
+const { postSlug } = Astro.props;
+const posts = (await getCollection('blog')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+
+const currentIndex = posts.findIndex((p) => p.slug === postSlug);
+const post = posts[currentIndex];
+if (!post) throw new Error(`Post not found: ${postSlug}`);
+
+const { Content } = await post.render();
+const prev = posts[currentIndex - 1];
+const next = posts[currentIndex + 1];
+---
+
+<Layout title={post.data.title}>
+  <article class="post">
+    <h1>{post.data.title}</h1>
+    <p class="date">{post.data.date}</p>
+
+    <Content />
+
+    <hr />
+
+    <nav class="nav-links">
+      {prev ? <a href={`/blog/${prev.slug}`}>← {prev.data.title}</a> : <span />}
+      <a href="/blog">↑ Back to Blog</a>
+      {next ? <a href={`/blog/${next.slug}`}>{next.data.title} →</a> : <span />}
+    </nav>
+  </article>
+</Layout>

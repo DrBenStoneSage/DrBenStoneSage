@@ -1,59 +1,183 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import Layout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="DrBenStoneSage">
+<Layout title="DrBenStoneSage" noSectionWrapper={true}>
   <section class="splash">
-    <h1>Welcome to DrBenStoneSage</h1>
-    <p>Game dev. Music. Mischief. Mystery.</p>
+    <div class="tagline">PhD • Game Developer • Researcher • Educator</div>
+    <h1><span class="brand">DrBenStoneSage</span></h1>
+    <p>Creating games, immersive experiences, and strange worlds.</p>
+
+    <div class="cta-group">
+      <a class="cta-button" href="/tutoring">Book Tutoring</a>
+      <a class="cta-button" href="/consulting">Book Consulting</a>
+    </div>
 
     <nav class="socials">
-	  <a href="https://drbenstonesage.substack.com/" target="_blank">Substack Blog</a>
-      <a href="https://twitch.tv/drbenstonesage" target="_blank">Twitch</a>
-      <a href="https://instagram.com/drbenstonesage" target="_blank">Instagram</a>
-      <a href="https://patreon.com/drbenstonesage" target="_blank">Patreon</a>
+      <a href="https://drbenstonesage.substack.com/" target="_blank">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M4 4h16v2H4zm0 4h10v2H4zm0 4h7v2H4zm0 4h5v2H4z"></path>
+          <path d="M20 8v12H8v-2h10V8z"></path>
+        </svg>
+        Substack
+      </a>
+      <a href="https://twitch.tv/drbenstonesage" target="_blank">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M4 2l-2 4v15h6v3l4-3h5l5-5V2H4z"></path>
+          <path d="M16 8v5M10 8v5"></path>
+        </svg>
+        Twitch
+      </a>
+      <a href="https://instagram.com/drbenstonesage" target="_blank">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M17.5 6.5h.01"></path>
+        </svg>
+        Instagram
+      </a>
+      <a href="https://patreon.com/drbenstonesage" target="_blank">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="16" cy="8" r="4"></circle>
+          <line x1="4" y1="4" x2="4" y2="20"></line>
+        </svg>
+        Patreon
+      </a>
     </nav>
   </section>
 
   <style>
+    .page-section {
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+
     .splash {
-      max-width: 800px;
-      margin: 5rem auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
+      max-width: 640px;
+      margin: 6rem auto;
+      padding: 3rem 2rem;
       border-radius: 1rem;
+      background: rgba(0, 32, 0, 0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
+      transition: all 0.3s ease-in-out;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .tagline {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: #aaffdd;
+      margin-bottom: 0.5rem
+      opacity: 0.85;
     }
 
-    p {
+    .splash h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ccffcc;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .splash p {
       font-size: 1.2rem;
+      color: #d0f0d0;
+      margin-bottom: 2rem;
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
     }
 
+    .cta-button {
+      display: inline-block;
+      background: #ccffcc;
+      color: #002200;
+      font-weight: bold;
+      padding: 0.65rem 1.4rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background: #b3ffb3;
+      transform: translateY(-2px);
+    }
+
+    .cta-button.secondary {
+      background: #99e6cc;
+    }
+
+    .cta-button.secondary:hover {
+      background: #88ddbb;
+    }
     .socials {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1rem;
     }
 
     .socials a {
-      color: #002200;
-      text-decoration: none;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       background: #ccffcc;
+      color: #002200;
+      font-weight: 600;
       padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background 0.2s ease-in-out;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .socials a:hover {
       background: #b3ffb3;
+      transform: translateY(-2px);
+    }
+
+    .socials svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
     }
   </style>
 </Layout>

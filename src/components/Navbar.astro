@@ -1,10 +1,49 @@
-<nav style="background: #002200; color: #ccffcc; padding: 1rem 0;">
-    <div style="max-width: 800px; margin: 0 auto; display: flex; gap: 1.5rem; padding: 0 1rem;">
-      <a href="/" style="color: inherit; text-decoration: none;">Home</a>
-      <a href="/about" style="color: inherit; text-decoration: none;">About</a>
-      <a href="https://drbenstonesage.substack.com/" target="_blank" style="color: inherit; text-decoration: none;">Substack Blog</a>
-      <a href="/devlog" style="color: inherit; text-decoration: none;">Devlog</a>
-      <a href="/games" style="color: inherit; text-decoration: none;">Games</a>
-    </div>
-  </nav>
-  
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/consulting">Consulting</a>
+    <a href="/tutoring">Tutoring</a>
+    <a href="https://drbenstonesage.substack.com/" target="_blank"
+      >Substack Blog</a
+    >
+    <a href="/devlog">Devlog</a>
+    <a href="/games">Games</a>
+  </div>
+</nav>
+
+<style>
+  .main-nav {
+    background: #002200;
+    color: #ccffcc;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    transition:
+      background 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+    border-radius: 4px;
+  }
+
+  .main-nav a:hover {
+    background: #004400;
+    color: #ffffff;
+  }
+</style>

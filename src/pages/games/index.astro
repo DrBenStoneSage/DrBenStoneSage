@@ -1,20 +1,24 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/BaseLayout.astro";
+
+const games = await getCollection("games");
 ---
 
 <Layout title="Games">
-  <section class="page-section">
-    <h1>Games</h1>
-    <p>Welcome to my game library. Here's what I'm working on:</p>
+  <h1>Games</h1>
+  <p>Welcome to my game library. Here's what I'm working on:</p>
 
-    <div class="game-card">
-      <h2><a href="/games/sailing-lessons">Sailing Lessons</a></h2>
-      <p>A thoughtful narrative game about learning, navigation, and life’s unexpected currents.</p>
-      <ul>
-        <li>🧭 Narrative-driven sailing sim</li>
-        <li>🎵 Original soundtrack</li>
-        <li>🎮 Releasing on Steam (planned)</li>
-      </ul>
-    </div>
-  </section>
+  {
+    games.map((game) => (
+      <div class="game-card" key={game.id}>
+        <h3>
+          <a href={`/games/${game.slug}`}>
+            {game.data.date} : {game.data.title}
+          </a>
+        </h3>
+        <p>{game.data.description}</p>
+      </div>
+    ))
+  }
 </Layout>

@@ -1,23 +1,15 @@
 ---
 title: Sailing Lessons
-tagline: Navigate strange seas and stranger souls.
+tagline: Learn how to sail under pressure.
 status: in-dev
 date: "2025-10-31"
 developer: DrBenStoneSage
 publisher: Hearth & Heart Games
 tags: [Sailing, Mystery, Co-op, Adventure]
-description: DFJKLDJFLK
+description: A sailing simulator game with a twist.
 features:
-  - Single-player
-  - Online Co-op
-  - Steam Cloud
-  - Partial Controller Support
+  - Single-player   
 controllerSupport: [Xbox, PlayStation]
 languages:
-  - English
-media:
-  trailer: /videos/sailing-lessons-trailer.mp4
-  screenshots:
-    - /images/sailing1.png
-    - /images/sailing2.png
+  - English 
 ---
